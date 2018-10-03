@@ -52,7 +52,7 @@ class CommentsController extends Controller
             }
         }
 
-        return back()->withInput()->with('errors', 'Error in creating new Project');
+        return back()->withInput()->with('errors', 'Error in adding new comment');
     }
 
     /**
