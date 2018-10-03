@@ -37,25 +37,23 @@ class ProjectsController extends Controller
         if(Auth::user()->id == $project->user_id){
             $user = User::where('email', $request->input('email'))->first(); //Single record
             //Check if user has been added to project
-            $projectUser = ProjectUser::where('user_id', $user->id)
-                                        ->where('project_id', $project->id)
-                                        ->first();
+            $projectUser = ProjectUser::where('user_id', $user->id)->where('project_id', $project->id)->first();
 
             if($projectUser){
                 //If user already exist
-                // return redirect()->route('projects.show', ['project'=> $project->id])->
-                // with('success', 'Error '.$request->input('email').' already exist in project!');
+                return redirect()->route('projects.show', ['project'=> $project->id])->
+                with('success', 'Error '.$request->input('email').' already exist in project!');
 
-                return response()->json(['success' ,  $request->input('email').' is already a member of this project']);
+                // return response()->json(['success' ,  $request->input('email').' is already a member of this project']);
 
             }
 
             if($user && $project){
                 $project->users()->attach($user->id);
-                // return redirect()->route('projects.show', ['project'=> $project->id])->
-                // with('sucess', $request->input('email').'user added already');
+                return redirect()->route('projects.show', ['project'=> $project->id])->
+                with('sucess', $request->input('email').'user added already');
 
-                return response()->json(['success' ,  $request->input('email').' was added to the project successfully']); 
+                // return response()->json(['success' ,  $request->input('email').' was added to the project successfully']); 
             }
         }
 

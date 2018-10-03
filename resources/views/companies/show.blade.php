@@ -36,10 +36,10 @@
             <div class="sidebar-module">
                     <h4>Actions</h4>
                     <ol class="list-unstyled">
-                    <li><a href="/companies/{{$company->id}}/edit">Edit</a></li>
-                    <li><a href="/projects/create/{{$company->id}}">Add project</a></li>
-                    <li><a href="/companies">List of Companies</a></li>
-                    <li><a href="/companies/create">Create new Company</a></li>                    
+                    <li><a href="/companies/{{$company->id}}/edit"><i class="fas fa-edit"></i>Edit</a></li>
+                    <li><a href="/projects/create/{{$company->id}}"><i class="fas fa-briefcase"></i>Add project</a></li>
+                    <li><a href="/companies"><i class="fas fa-list-ul"></i>List of Companies</a></li>
+                    <li><a href="/companies/create"><i class="fas fa-plus-circle"></i>Create new Company</a></li>                    
 
                     </br>
                       <li>
@@ -53,7 +53,7 @@
                                     document.getElementById('delete-form').submit();
                                 }"
                         >
-                                Delete
+                        <i class="fas fa-trash-alt"></i>Delete
                         </a>
                         
                       <form id="delete-form" action="{{ route('companies.destroy',[$company->id]) }}"

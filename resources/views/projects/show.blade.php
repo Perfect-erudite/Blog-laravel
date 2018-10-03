@@ -70,9 +70,9 @@
             <div class="sidebar-module">
                     <h4>Actions</h4>
                     <ol class="list-unstyled">
-                    <li><a href="/projects/{{$project->id}}/edit">Edit</a></li>
-                    <li><a href="/projects/create">Create new project</a></li>
-                    <li><a href="/projects">List of projects</a></li>
+                    <li><a href="/projects/{{$project->id}}/edit"><i class="fas fa-edit"></i>Edit</a></li>
+                    <li><a href="/projects/create"><i class="fas fa-plus-circle"></i>Create new project</a></li>
+                    <li><a href="/projects"><i class="fas fa-list-ul"></i>List of projects</a></li>
 
                     </br>
 
@@ -88,7 +88,7 @@
                                     document.getElementById('delete-form').submit();
                                 }"
                         >
-                                Delete
+                        <i class="fas fa-trash-alt"></i>Delete
                         </a>
                         
                       <form id="delete-form" action="{{ route('projects.destroy',[$project->id]) }}"
