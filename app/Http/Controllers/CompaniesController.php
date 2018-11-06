@@ -44,21 +44,25 @@ class CompaniesController extends Controller
      */
     public function store(Request $request)
     {
+        //Checks if user is logged in and is in the database
         if(Auth::check()){
-            $company = Company::create([
-                'name' => $request->input('name'),
-                'description' => $request->input('description'),
+            //This enables user to create a company
+            $company = Company::create([   //A variable to create a company into the companies database
+                'name' => $request->input('name'),  //The company's name to be inserted into the database
+                'description' => $request->input('description'),  
                 'user_id' => Auth::user()->id
             ]);
 
 
 
+            //Once the company is created successfully, its redirect the user to company's page with a success message
             if($company){
                 return redirect()->route('companies.show', ['company'=>$company->id])
                 ->with('success', 'Company created successfully');
             }
         }
 
+        //This returns an error message if the company cannot be created and redirects back to the company creating page
         return back()->withInput()->with('errors', 'Error in creating new Company');
     }
 

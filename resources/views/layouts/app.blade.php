@@ -14,10 +14,20 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+        .panel > .panel-heading{
+            background-color: grey;
+            color: white;
+        }
+        .fas{
+            color:white;
+        }
+    </style>
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top" style="background-color: grey;">
             <div class="container">
                 <div class="navbar-header">
 
@@ -31,7 +41,8 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{-- {{ config('app.name', 'Laravel') }} --}}
+                        <span style="color:white;">Project Manager</span>
                     </a>
                 </div>
 
@@ -45,18 +56,18 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}"><span style="color:white;">Login</span></a></li>
+                            <li><a href="{{ route('register') }}"><span style="color:white;"> Register </span></a></li>
                         @else
 
-                        <li><a href="{{ route('companies.index') }}"><i class="fas fa-building"></i> Companies</a></li>
-                        <li><a href="{{ route('projects.index') }}"><i class="fas fa-project-diagram"></i> Projects</a></li>
-                        <li><a href="{{ route('tasks.index') }}"><i class="fas fa-tasks"></i> Tasks</a></li>
+                        <li><a href="{{ route('companies.index') }}"><i class="fas fa-building"></i><span style="color:white;"> Companies</span></a></li>
+                        <li><a href="{{ route('projects.index') }}"><i class="fas fa-project-diagram"></i><span style="color:white;"> Projects</span></a></li>
+                        <li><a href="{{ route('tasks.index') }}"><i class="fas fa-tasks"></i><span style="color:white;"> Tasks</span></a></li>
                         
 
                         @if(Auth::user()->role_id == 1)
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-unlock-alt"></i>Admin<span class="caret"></span>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-unlock-alt"></i><span style="color:white;">Admin</span><span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -70,7 +81,7 @@
                         @endif
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-user"></i>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <span style="color:white;">{{ Auth::user()->name }}</span> <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
