@@ -9,7 +9,9 @@
             
 
             <ul class="list-group">
+            {{-- Displays the list of projectss present in the database --}}
                 @foreach($projects as $project)
+                {{-- List the projects and makes it a link to show the project page --}}
             <li class="list-group-item"><i class="fas fa-caret-right"></i><a href="/projects/{{$project->id}}">{{$project->name}}</a></li>
                 @endforeach
             </ul>

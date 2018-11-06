@@ -113,8 +113,11 @@
             @endif
 
             <div class="content">
+                
                 <div class="title m-b-md">
-                    Project Manager
+                        {{-- <img src="{{asset('image/Braintemple.jpg')}}" style="width:40px; height:40px;"> --}}
+                    Project Manager</br>
+                    <small> Braintemple Software Academy </small>
                 </div>
             </div>
         </div>

@@ -36,6 +36,10 @@ class ProjectsController extends Controller
         
         if(Auth::user()->id == $project->user_id){
             $user = User::where('email', $request->input('email'))->first(); //Single record
+            if($user === null){
+                return redirect()->route('projects.show', ['project'=> $project->id])->
+                with('success', 'Error '.$request->input('email').' is not a registered staff');
+            }
             //Check if user has been added to project
             $projectUser = ProjectUser::where('user_id', $user->id)->where('project_id', $project->id)->first();
 
