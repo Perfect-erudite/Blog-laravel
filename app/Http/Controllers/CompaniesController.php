@@ -17,7 +17,12 @@ class CompaniesController extends Controller
     {
         //Get all list of companies
         //$companies = company::all();
-        if(Auth::check()){
+        if(Auth::user()->role_id < 3){
+            $companies = Company::all();
+            return view('companies.index', ['companies' => $companies]);
+        }
+        
+        elseif(Auth::check()){
             $companies = Company::where('user_id', Auth::user()->id)->get();
             //Pass view to laravel
             return view('companies.index', ['companies'=>$companies]);

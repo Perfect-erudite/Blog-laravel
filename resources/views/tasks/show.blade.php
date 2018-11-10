@@ -143,7 +143,7 @@
                             // });
 
                             var formData = {
-                                'project_id' : $('#project_id').val(),
+                                'task_id' : $('#task_id').val(),
                                 'email' : $('#email').val(),
                                 '_token': $('input[name=_token]').val(),
                               }

@@ -18,11 +18,31 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        if(Auth::check()){
+        // if(Auth::check() && Auth::user()->role_id == 3){
+        //     $projects = Project::where('user_id', Auth::user()->id)->get();
+        //     //Pass view to laravel
+        //     return view('projects.index', ['projects'=>$projects]);
+        // }
+        // elseif(Auth::user()->role_id < 3){
+        //     $projects = Project::all();  //Display all project
+        //     return view('projects.index', ['projects' => $projects]);
+        // }
+        // return view('auth.login');
+
+        
+
+        
+        if(Auth::user()->role_id < 3){
+            $projects = Project::all();  //Display all project
+            return view('projects.index', ['projects' => $projects]);
+        }
+        
+        elseif(Auth::check()){
             $projects = Project::where('user_id', Auth::user()->id)->get();
             //Pass view to laravel
             return view('projects.index', ['projects'=>$projects]);
         }
+        
         return view('auth.login');
 
     }

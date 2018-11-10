@@ -20,12 +20,19 @@ class TasksController extends Controller
     {
         //Check if user is login
 
-        // if(Auth::check()){
-        $tasks = Task::where('user_id', Auth::user()->id)->get();
-        return view('tasks.index', ['tasks'=>$tasks]);
-        // }
-        //ask user to login
-        // return('auth.login');
+        if(Auth::user()->role_id < 3){
+            $tasks = Task::all();  //Display all project
+            return view('tasks.index', ['tasks' => $tasks]);
+        }
+        
+        elseif(Auth::check()){
+            $tasks = Task::where('user_id', Auth::user()->id)->get();
+            //Pass view to laravel
+            return view('tasks.index', ['tasks'=>$tasks]);
+        }
+
+        //Ask user to login
+        return('auth.login');
     }
 
 
@@ -126,9 +133,12 @@ class TasksController extends Controller
     public function show(Task $task)
     {
         //Get this particular task id
+        // $tasks = Task::all();
         $task = Task::find($task->id);
 
-        return view('tasks.show', ['task'=>$task]);
+        //To link the comment into the task show page
+        $comments = $task->comments;
+        return view('tasks.show', ['task'=>$task, 'comments'=> $comments]); 
     }
 
     /**

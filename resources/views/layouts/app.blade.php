@@ -60,9 +60,26 @@
                             <li><a href="{{ route('register') }}"><span style="color:white;"> Register </span></a></li>
                         @else
 
+                        <li><a href="{{ route('home') }}"><i class="fas fa-home"></i><span style="color:white;"> Home</span></a></li> 
+
+                        @if(Auth::user()->role_id < 3)    {{--If an admin or moderator --}}                                         
+                        <li><a href="{{ route('companies.index') }}"><i class="fas fa-building"></i><span style="color:white;">All Companies</span></a></li>
+                        @else
                         <li><a href="{{ route('companies.index') }}"><i class="fas fa-building"></i><span style="color:white;"> Companies</span></a></li>
+                        @endif
+                        
+                        @if(Auth::user()->role_id < 3)  {{--If an admin or moderator --}} 
+                        <li><a href="{{ route('projects.index') }}"><i class="fas fa-project-diagram"></i><span style="color:white;">All Projects</span></a></li>
+                        @else
                         <li><a href="{{ route('projects.index') }}"><i class="fas fa-project-diagram"></i><span style="color:white;"> Projects</span></a></li>
+                        @endif
+                        
+                        
+                        @if(Auth::user()->role_id < 3)  {{--If an admin or moderator --}} 
+                        <li><a href="{{ route('tasks.index') }}"><i class="fas fa-tasks"></i><span style="color:white;">All Tasks</span></a></li>
+                        @else
                         <li><a href="{{ route('tasks.index') }}"><i class="fas fa-tasks"></i><span style="color:white;"> Tasks</span></a></li>
+                        @endif                        
                         
 
                         @if(Auth::user()->role_id == 1)
@@ -71,20 +88,33 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ route('companies.index') }}"><i class="fas fa-building"></i> All Companies</a></li>
-                                    <li><a href="{{ route('projects.index') }}"><i class="fas fa-project-diagram"></i> All Projects</a></li>
-                                    <li><a href="{{ route('tasks.index') }}"><i class="fas fa-tasks"></i> All Tasks</a></li>
                                     <li><a href="{{ route('users.index') }}"><i class="fas fa-user"></i> All Users</a></li>
                                     <li><a href="{{ route('roles.index') }}"><i class="fas fa-briefcase"></i> All Roles</a></li>
                                 </ul>
                             </li>
                         @endif
+
+                        @if(Auth::user()->role_id == 2)
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-user"></i>
-                                    <span style="color:white;">{{ Auth::user()->name }}</span> <span class="caret"></span>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-unlock-alt"></i><span style="color:white;">Moderator</span><span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ route('users.index') }}"><i class="fas fa-user"></i> All Users</a></li>
+                                    {{-- <li><a href="{{ route('roles.index') }}"><i class="fas fa-briefcase"></i> All Roles</a></li> --}}
+                                </ul>
+                            </li>
+                        @endif
+                            <li>
+                                <a href="/users/{{Auth::user()->id}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-user"></i>
+                                    <span style="color:white;">{{ Auth::user()->name }}</span> <span class="caret"></span>
+                                </a>
+                                {{-- <a href="/users/{{Auth::user()->id}}"><i class="fas fa-user"></i>
+                                    <span style="color:white;">{{ Auth::user()->name }}</span>
+                                </a> --}}
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/users/{{Auth::user()->id}}">Profile</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -110,8 +140,11 @@
                 @yield('content')
             </div>
         </div>
-        
+           <!-- Main Footer -->
     </div>
+    <footer class="main-footer" style="max-height: 100px;text-align: center">
+        <strong>Copyright © 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    </footer>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

@@ -2,18 +2,32 @@
 @extends('layouts.app')
 @section('content')
 <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+   
+
+    {{-- @if(isset($task->id)) --}}
         <div class="panel panel-default">
-            <div class="panel-heading">Tasks</div>
+                <div class="panel-heading">Tasks<a class="pull-right btn btn-primary btn-sm" href="/tasks/create">Create new</a></div>
             <div class='panel-body'>
                 <ul class="list-group">
                     {{-- Displays the list of tasks present in the database --}}
                     @foreach($tasks as $task)
                     {{-- List the tasks and makes it a link to show the task page --}}
+                    {{-- @if(isset($tasks) > 0) --}}
                         <li class="list-group-item"><a href="/tasks/{{$task->id}}">{{$task->name}}</a></li>
+                    {{-- @else
+                     NO TASK CREATED
+                    @endif --}}
                      @endforeach
+                     
                 </ul>
             </div>
         </div>
+
+    {{-- @else
+        <h1>NO TASK CREATED</h1></br>
+        <a class="pull-right btn btn-primary btn-sm" href="/tasks/create">Create new Task</a></div>
+
+        @endif --}}
     </div>
     
 

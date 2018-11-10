@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+    {{-- @if($companies -> check()) --}}
     <div class="panel panel-default">
         <div class="panel-heading">Companies<a class="pull-right btn btn-primary btn-sm" href="/companies/create">Create new</a>
         </div>
@@ -15,6 +16,10 @@
             </ul>
         </div>
     </div>
+    {{-- @else
+        <h1>NO COMPANY CREATED</h1></br>
+        <a class="pull-right btn btn-primary btn-sm" href="/companies/create">Create new Company</a></div>
+    @endif --}}
 </div>
 
 @endsection

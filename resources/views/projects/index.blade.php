@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+    {{-- @if(isset($project)) --}}
     <div class="panel panel-default">
         <div class="panel-heading">Projects<a class="pull-right btn btn-primary btn-sm" href="/projects/create">Create new</a>
         </div>
@@ -17,6 +18,11 @@
             </ul>
         </div>
     </div>
+    {{-- @else
+    <h1>NO PROJECT CREATED</h1></br>
+    <a class="pull-right btn btn-primary btn-sm" href="/projects/create">Create new Project</a></div>
+
+    @endif --}}
 </div>
 
 @endsection

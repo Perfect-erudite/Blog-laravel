@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
-use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Role;
 
-class UsersController extends Controller
+class RolesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +17,10 @@ class UsersController extends Controller
     {
         //
         if(Auth::check()){
-            $users = User::all();
+            $roles = Role::all();
             //Pass view to laravel
-            return view('users.index')
-            ->with('users', $users);
+            return view('roles.index')
+            ->with('roles', $roles);
             // return view('companies.index', ['companies'=>$companies]);
         }
     }
@@ -44,7 +44,6 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //
-        
     }
 
     /**
@@ -53,11 +52,9 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
         //
-        $user = User::find($user->id);
-        return view('users.show', ['user'=>$user]);
     }
 
     /**
@@ -89,17 +86,8 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
         //
-        $findUser = User::find( $user->id);
-        if($findUser->delete()){
-
-           //redirect
-           return redirect()->route('users.index')
-           ->with('success', 'User deleted successfully');
-        }
-
-        return back()->withInput()->with('errors', 'User could not be deleted');
     }
 }
