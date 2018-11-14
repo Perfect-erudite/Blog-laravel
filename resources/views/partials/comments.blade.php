@@ -1,6 +1,9 @@
 <div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
         
+                @if($comments->isEmpty())
+                    {{-- If comment does not exist or has not been inputted show nothing --}}
+                @else
             <!-- Fluid width widget -->        
     	    <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -14,7 +17,13 @@
                         @foreach($comments as $comment)
                             <li class="media">
                                 <div class="media-left">
-                                    <img src="http://placehold.it/60x60" class="img-circle">
+                                    @if($comment->user->avatar)
+                                    <img src="/uploads/avatars/{{ $comment->user->avatar }}" class="img-circle" style="width:32px; height:32px; border-radius:50%;">
+
+                                    @else
+                                    <img src="/uploads/avatars/user.jpg" class="img-circle" style="width:32px; height:32px; border-radius:50%;">                                    
+
+                                    @endif
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading">
@@ -38,6 +47,7 @@
                     </ul>
                 </div>
             </div>
+            @endif
             <!-- End fluid width widget --> 
         </div>
 </div>

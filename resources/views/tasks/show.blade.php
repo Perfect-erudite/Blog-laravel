@@ -17,7 +17,6 @@
                 {{-- <a href="/projects/create" class="pull-right btn btn-primary btn-sm">Add project</a> --}}
                 <br/>
 
-                @include('partials.comments')
 
             <div class="row container-fluid">
                 <form method="post" action="{{ route('comments.store') }}">
@@ -54,6 +53,7 @@
                     </div>
                 </form>
             </div>
+            @include('partials.comments')
         </div>
     </div>
 

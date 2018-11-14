@@ -105,13 +105,19 @@
                                 </ul>
                             </li>
                         @endif
+
+
+                        
                             <li>
-                                <a href="/users/{{Auth::user()->id}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-user"></i>
-                                    <span style="color:white;">{{ Auth::user()->name }}</span> <span class="caret"></span>
+                                <a href="/users/{{Auth::user()->id}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    @if(Auth::user()->avatar)
+                                    <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:32px; height:32px; border-radius:50%;">
+                                    @else
+                                    <img src="/uploads/avatars/user.jpg" style="width:32px; height:32px; top:10px; left:0px; border-radius:50%;">                                    
+                                    @endif
+                                    
+                                    <span style="color:white; left: 1px;">{{ Auth::user()->name }}</span> <span class="caret"></span>
                                 </a>
-                                {{-- <a href="/users/{{Auth::user()->id}}"><i class="fas fa-user"></i>
-                                    <span style="color:white;">{{ Auth::user()->name }}</span>
-                                </a> --}}
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="/users/{{Auth::user()->id}}">Profile</a></li>

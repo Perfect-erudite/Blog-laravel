@@ -7,19 +7,18 @@
         <div class="panel-heading">Companies<a class="pull-right btn btn-primary btn-sm" href="/companies/create">Create new</a>
         </div>
         <div class='panel-body'>
-            
-
-            <ul class="list-group">
-                @foreach($companies as $company)
-            <li class="list-group-item"><a href="/companies/{{$company->id}}">{{$company->name}}</a></li>
-                @endforeach
-            </ul>
+            @if ($companies->isEmpty())
+                <h1>NO COMPANY CREATED</h1></br>
+            @else
+                <ul class="list-group">
+                    @foreach($companies as $company)
+                        <li class="list-group-item"><a href="/companies/{{$company->id}}">{{$company->name}}</a></li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
-    </div>
-    {{-- @else
-        <h1>NO COMPANY CREATED</h1></br>
-        <a class="pull-right btn btn-primary btn-sm" href="/companies/create">Create new Company</a></div>
-    @endif --}}
+    </div>        
+    
 </div>
 
 @endsection

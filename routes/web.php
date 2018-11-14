@@ -60,6 +60,8 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('tasks', 'TasksController');
     Route::resource('comments', 'CommentsController'); 
     Route::resource('users', 'UsersController');
+    Route::get('profile', 'UsersController@show')->middleware('auth')->name('users.show');
+    Route::post('profile', 'UsersController@update')->middleware('auth')->name('users.update');
     
 });
 

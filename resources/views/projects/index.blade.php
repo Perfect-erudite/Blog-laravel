@@ -7,15 +7,17 @@
         <div class="panel-heading">Projects<a class="pull-right btn btn-primary btn-sm" href="/projects/create">Create new</a>
         </div>
         <div class='panel-body'>
-            
-
-            <ul class="list-group">
-            {{-- Displays the list of projectss present in the database --}}
-                @foreach($projects as $project)
-                {{-- List the projects and makes it a link to show the project page --}}
-            <li class="list-group-item"><i class="fas fa-caret-right"></i><a href="/projects/{{$project->id}}">{{$project->name}}</a></li>
-                @endforeach
-            </ul>
+            @if ($projects->isEmpty())
+                <h1>NO PROJECT CREATED</h1></br>
+            @else
+                <ul class="list-group">
+                    {{-- Displays the list of projectss present in the database --}}
+                    @foreach($projects as $project)
+                        {{-- List the projects and makes it a link to show the project page --}}
+                         <li class="list-group-item"><i class="fas fa-caret-right"></i><a href="/projects/{{$project->id}}">{{$project->name}}</a></li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
     </div>
     {{-- @else
