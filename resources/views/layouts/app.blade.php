@@ -8,7 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Braintemple Project Manager') }}</title>
+    {{-- <title>{{ config('app.name', 'Braintemple Project Manager') }}</title> --}}
+    <title>Project Manager </title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -16,18 +17,36 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <style>
         .panel > .panel-heading{
-            background-color: grey;
+            background-color: indigo;
             color: white;
         }
         .fas{
             color:white;
         }
+        .jumbotron{
+            background-color:black;
+            color:white;
+        }
+        a{
+            color:black;
+        }
+
+        #overLayBody{
+                position:absolute;
+                background-color:rgba(0,0,0,0.5);
+                top:0;
+                bottom:0;
+                height:100%;
+                width:100%;
+                z-index:-;
+                cursor:pointer;
+            } 
     </style>
 
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top" style="background-color: grey;">
+        <nav class="navbar navbar-default navbar-static-top" style="background-color: indigo;">
             <div class="container">
                 <div class="navbar-header">
 
@@ -149,7 +168,7 @@
            <!-- Main Footer -->
     </div>
     <footer class="main-footer" style="max-height: 100px;text-align: center">
-        <strong>Copyright © 2016 <a href="#">Company</a>.</strong> All rights reserved.
+        <strong>Copyright © 2018 <a href="#">Adedeji Ayomide</a>.</strong> All rights reserved.
     </footer>
 
     <!-- Scripts -->

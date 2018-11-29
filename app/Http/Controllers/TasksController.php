@@ -5,6 +5,7 @@ use App\Task;
 use App\Project;
 use App\Company;
 use App\TaskUser;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -40,7 +41,7 @@ class TasksController extends Controller
         //add user to projects
 
         //Take a project and add a user to it
-        $task = task::find($request->input('task_id'));
+        $task = Task::find($request->input('task_id'));
         
         
         if(Auth::user()->id == $task->user_id){
@@ -132,13 +133,19 @@ class TasksController extends Controller
      */
     public function show(Task $task)
     {
+
         //Get this particular task id
         // $tasks = Task::all();
         $task = Task::find($task->id);
+        $project = $task->project;
+        $company = $project->company;
+
+        // $project = Project::find($project->id);
+        // $company = Company::find($company->id);
 
         //To link the comment into the task show page
         $comments = $task->comments;
-        return view('tasks.show', ['task'=>$task, 'comments'=> $comments]); 
+        return view('tasks.show', ['task'=>$task, 'comments'=> $comments, 'project'=> $project, 'company'=>$company]); 
     }
 
     /**

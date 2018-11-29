@@ -67,6 +67,8 @@
                     <li><a href="/tasks/{{$task->id}}/edit"><i class="fas fa-edit"></i>Edit</a></li>
                     <li><a href="/tasks/create"><i class="fas fa-plus-circle"></i>Create new task</a></li>
                     <li><a href="/tasks"><i class="fas fa-list-ul"></i>List of tasks</a></li>
+                    <li><a href="/projects/{{$project->id}}"><i class="fas fa-list-ul"></i>View Project</a></li>
+                    <li><a href="/companies/{{$company->id}}"><i class="fas fa-list-ul"></i>View Company</a></li>                    
 
                     </br>
 

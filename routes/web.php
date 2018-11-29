@@ -28,7 +28,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 
 
@@ -44,6 +44,7 @@ Route::middleware(['moderator', 'auth'])->group(function(){
         Route::get('users', 'UsersController@index'); //To get all users from the user's controller index
         Route::delete('users/{id}', 'UsersController@destroy');
         Route::resource('roles', 'RolesController');
+        // Route::resource('users', 'Userscontroller');
         
     });
 
@@ -56,6 +57,8 @@ Route::middleware(['auth'])->group(function(){
     Route::post('projects/adduser', 'ProjectsController@adduser')->name('projects.adduser');
     Route::post('tasks/adduser', 'TasksController@adduser')->name('tasks.adduser');
     Route::get('projects/create/{company_id?}', 'ProjectsController@create');
+    Route::get('tasks/create/{company_id?}', 'TasksController@create'); 
+    Route::get('tasks/create/{project_id?}', 'TasksController@create');           
     Route::resource('projects', 'ProjectsController');
     Route::resource('tasks', 'TasksController');
     Route::resource('comments', 'CommentsController'); 

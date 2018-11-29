@@ -136,11 +136,15 @@ class ProjectsController extends Controller
      */
     public function show(Project $project)
     {
+        $company = $project->company;
+        
+        $company = Company::find($company->id);
+        
         $project = Project::find($project->id);
 
         $comments = $project->comments;
 
-        return view('projects.show', ['project'=>$project, 'comments'=> $comments]);
+        return view('projects.show', ['project'=>$project, 'comments'=> $comments, 'company'=>$company]);
     }
 
     /**

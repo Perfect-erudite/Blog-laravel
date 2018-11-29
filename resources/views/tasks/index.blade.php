@@ -6,7 +6,7 @@
 
     {{-- @if(isset($task->id)) --}}
         <div class="panel panel-default">
-                <div class="panel-heading">Tasks<a class="pull-right btn btn-primary btn-sm" href="/tasks/create">Create new</a></div>
+                <div class="panel-heading">Tasks<a class="pull-right btn btn-default btn-sm" style="color:black; " href="/tasks/create">Create new</a></div>
             <div class='panel-body'>
                     @if ($tasks->isEmpty())
                         <h1>NO TASK CREATED</h1></br>

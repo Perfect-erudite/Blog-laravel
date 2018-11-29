@@ -4,7 +4,7 @@
 <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
     {{-- @if($companies -> check()) --}}
     <div class="panel panel-default">
-        <div class="panel-heading">Companies<a class="pull-right btn btn-primary btn-sm" href="/companies/create">Create new</a>
+        <div class="panel-heading">Companies<a class="pull-right btn btn-default btn-sm" style="color:black" href="/companies/create">Create new</a>
         </div>
         <div class='panel-body'>
             @if ($companies->isEmpty())

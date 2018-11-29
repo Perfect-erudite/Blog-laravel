@@ -20,12 +20,30 @@
                     />
                 </div>
 
-                        @if($projects == null)
-                                <input class="form-control" type="hidden"
-                                        name="project_id"
-                                        value="{{ $project_id }}"
-                                />
-                        @endif
+                @if($companies == null)
+                        <input class="form-control" type="hidden"
+                                name="company_id"
+                                value="{{ $company_id }}"
+                        />
+                @endif
+
+                @if($companies != null)
+                        <div class="form-group">
+                                <label for="company-content">Select Company</label>
+                                <select name="project_id" class="form-control">
+                                        @foreach($companies as $company)
+                                <option value="{{ $company->id }}"> {{ $company->name }} </option> 
+                                        @endforeach       
+                                </select>                    
+                        </div> 
+                @endif                      
+
+                @if($projects == null)
+                        <input class="form-control" type="hidden"
+                                name="project_id"
+                                value="{{ $project_id }}"
+                        />
+                @endif
 
                 @if($projects != null)
                         <div class="form-group">
@@ -38,23 +56,7 @@
                         </div> 
                 @endif         
         
-                                @if($companies == null)
-                                        <input class="form-control" type="hidden"
-                                                name="company_id"
-                                                value="{{ $company_id }}"
-                                        />
-                                @endif
-        
-                        @if($companies != null)
-                                <div class="form-group">
-                                        <label for="company-content">Select Company</label>
-                                        <select name="project_id" class="form-control">
-                                                @foreach($companies as $company)
-                                        <option value="{{ $company->id }}"> {{ $company->name }} </option> 
-                                                @endforeach       
-                                        </select>                    
-                                </div> 
-                        @endif                       
+                                
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary"
                                 value="submit">

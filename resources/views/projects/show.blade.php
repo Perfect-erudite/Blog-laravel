@@ -16,10 +16,16 @@
         <!-- Example row of columns -->
         
         <div class="row" style="background-color:white; margin:10px">
-                {{-- <a href="/projects/create" class="pull-right btn btn-primary btn-sm">Add project</a> --}}
-                <br/>
+            <a href="/tasks/create/{{$project->id}}" class="pull-right btn btn-primary btn-sm">Add task</a>
+                    @foreach($project->tasks as $task)
+                        <div class="col-lg-4">
+                            <h2>{{ $task->name}}</h2>
+                            <p><a class="btn btn-primary" href="/tasks/{{$task->id}}" role="button">View task »</a></p>
+                        </div>
+                    @endforeach
+                    <br/>
 
-               
+        </div>
 
             <div class="row container-fluid">
                 <form method="post" action="{{ route('comments.store') }}">
@@ -57,7 +63,6 @@
                 </form>
             </div>
             @include('partials.comments')
-        </div>
     </div>
 
     
@@ -74,10 +79,11 @@
                     <li><a href="/projects/{{$project->id}}/edit"><i class="fas fa-edit"></i>Edit</a></li>
                     <li><a href="/projects/create"><i class="fas fa-plus-circle"></i>Create new project</a></li>
                     <li><a href="/projects"><i class="fas fa-list-ul"></i>List of projects</a></li>
+                    <li><a href="/companies/{{$company->id}}"><i class="fas fa-list-ul"></i>View Company</a></li>
 
                     </br>
 
-                    @if($project->user_id == Auth::user()->id )
+                    @if($project->user_id == Auth::user()->id)
                       <li>
                         
                         <a 
