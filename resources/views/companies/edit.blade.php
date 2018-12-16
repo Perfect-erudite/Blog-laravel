@@ -36,7 +36,7 @@
                         </textarea>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-danger"
+                    <input type="submit" class="btn" style="background-color:darkslateblue; color:white;"
                         value="submit">
                 </div>
         </form>
@@ -53,8 +53,8 @@
             <div class="sidebar-module">
                     <h4>Actions</h4>
                     <ol class="list-unstyled">
-                    <li><a href="/companies/{{$company->id}}" class="btn btn-danger"><i class="fas fa-eye"></i>View Company</a></li><br/>
-                    <li><a href="/companies" class="btn btn-primary"><i class="fas fa-building"></i>All Companies</a></li>
+                    <li><a href="/companies/{{$company->id}}" class="btn" style="background-color:darkslateblue; color:white;"><i class="fas fa-eye"></i>View Company</a></li><br/>
+                    <li><a href="/companies" class="btn" style="background-color:indigo; color:white;"><i class="fas fa-building"></i>All Companies</a></li>
                     
                     </ol>
                   </div>

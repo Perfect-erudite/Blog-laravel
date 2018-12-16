@@ -33,7 +33,7 @@
                         </textarea>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary"
+                    <input type="submit" class="btn" style="background-color:darkslateblue; color:white;"
                         value="submit">
                 </div>
         </form>

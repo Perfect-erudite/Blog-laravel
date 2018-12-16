@@ -13,6 +13,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ asset('image/favicon.png') }}" type="image/png">
+    {{-- <link rel="icon" href="public/image/favicon.ico" type="image/x-icon"> --}}
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <style>
@@ -24,7 +26,7 @@
             color:white;
         }
         .jumbotron{
-            background-color:black;
+            background-color:darkslateblue;
             color:white;
         }
         a{
@@ -165,9 +167,11 @@
                 @yield('content')
             </div>
         </div>
-           <!-- Main Footer -->
     </div>
-    <footer class="main-footer" style="max-height: 100px;text-align: center">
+
+      
+    <!-- Main Footer -->
+    <footer class="main-footer" style="max-height: 100px;text-align:center; margin-top:20%;">
         <strong>Copyright © 2018 <a href="#">Adedeji Ayomide</a>.</strong> All rights reserved.
     </footer>
 

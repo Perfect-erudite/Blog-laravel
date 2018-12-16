@@ -15,13 +15,13 @@
 
         <!-- Example row of columns -->
         
-        <div class="row" style="background-color:white; margin:10px">
-            <a href="/projects/create/{{$company->id}}" class="pull-right btn btn-primary btn-sm">Add project</a>
+        <div class="row" style="margin:10px">
+            <a href="/projects/create/{{$company->id}}" class="pull-right btn btn-sm" style="background-color:darkslateblue; color:white;">Add project</a>
             @foreach($company->projects as $project)
                 <div class="col-lg-4">
                 <h2>{{ $project->name}}</h2>
                     <p class="text-danger">{{$project->description}} </p>
-                <p><a class="btn btn-primary" href="/projects/{{$project->id}}" role="button">View project »</a></p>
+                <p><a class="btn" style="background-color:darkslateblue; color:white;" href="/projects/{{$project->id}}" role="button">View project »</a></p>
                 </div>
             @endforeach
         </div>

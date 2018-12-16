@@ -15,12 +15,12 @@
 
         <!-- Example row of columns -->
         
-        <div class="row" style="background-color:white; margin:10px">
-            <a href="/tasks/create/{{$project->id}}" class="pull-right btn btn-primary btn-sm">Add task</a>
+        <div class="row" style="margin:10px">
+            <a href="/tasks/create/{{$project->id}}" class="pull-right btn btn-sm" style="background-color:darkslateblue; color:white;">Add task</a>
                     @foreach($project->tasks as $task)
                         <div class="col-lg-4">
                             <h2>{{ $task->name}}</h2>
-                            <p><a class="btn btn-primary" href="/tasks/{{$task->id}}" role="button">View task »</a></p>
+                            <p><a class="btn" style="background-color:darkslateblue; color:white;" href="/tasks/{{$task->id}}" role="button">View task »</a></p>
                         </div>
                     @endforeach
                     <br/>
@@ -57,7 +57,7 @@
 
                     
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary"
+                        <input type="submit" class="btn" style="background-color:darkslateblue; color:white;"
                             value="submit">
                     </div>
                 </form>
