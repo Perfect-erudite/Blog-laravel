@@ -19,15 +19,15 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <style>
         .panel > .panel-heading{
-            background-color: indigo;
+            background-color: rebeccapurple;
             color: white;
         }
         .fas{
             color:white;
         }
         .jumbotron{
-            background-color:darkslateblue;
-            color:white;
+            background-image: radial-gradient(purple, rebeccapurple, white);
+            color:yellow;
         }
         a{
             color:black;
@@ -48,7 +48,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top" style="background-color: indigo;">
+        <nav class="navbar navbar-default navbar-static-top" style="background-color: rebeccapurple;">
             <div class="container">
                 <div class="navbar-header">
 

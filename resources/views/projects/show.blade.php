@@ -7,9 +7,9 @@
     
 
         <!-- Jumbotron -->
-        <div class="well well-lg">
-            <h1>{{ $project->name }}</h1>
-            <p class="lead">{{ $project->description}}</p>
+        <div class="well well-lg" style="background-image:linear-gradient(white, rebeccapurple);">
+            <h1 style="color:yellow;">{{ $project->name }}</h1>
+            <p class="lead" style="color:white;">{{ $project->description}}</p>
             <!--<p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>-->
         </div> 
 
@@ -19,7 +19,7 @@
             <a href="/tasks/create/{{$project->id}}" class="pull-right btn btn-sm" style="background-color:darkslateblue; color:white;">Add task</a>
                     @foreach($project->tasks as $task)
                         <div class="col-lg-4">
-                            <h2>{{ $task->name}}</h2>
+                            <h2 style="color:black;">{{ $task->name}}</h2>
                             <p><a class="btn" style="background-color:darkslateblue; color:white;" href="/tasks/{{$task->id}}" role="button">View task »</a></p>
                         </div>
                     @endforeach
